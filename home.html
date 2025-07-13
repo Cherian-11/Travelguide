@@ -16,7 +16,7 @@
     body, html {
       height: 100%;
       width: 100%;
-      background: url('images/third.jpeg') no-repeat center center fixed;
+      background: url('third.jpeg') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -54,8 +54,9 @@
       padding: 10px 20px;
       font-size: 14px;
       cursor: pointer;
-      text-decoration: none;
       transition: background-color 0.3s ease;
+      text-decoration: none;
+      z-index: 2;
     }
 
     .logout-button:hover {
@@ -125,14 +126,14 @@
 </head>
 <body>
   <div class="overlay"></div>
-  <a class="logout-button" href="login.html">Logout</a>
+  <a class="logout-button" href="index.html" style="z-index:2; position:absolute; top:20px; right:20px;">Logout</a>
   <div class="home-container">
     <h1>Welcome to Kerala Travel in Frames</h1>
     <p>Explore the culture, beauty, and magic of God's Own Country. Let your journey begin here with unforgettable experiences and serene landscapes.</p>
     <div class="district-buttons">
-      <button>Thiruvananthapuram</button>
+      <button onclick="location.href='tvm.html'">Thiruvananthapuram</button>
       <button>Kollam</button>
-      <button>Pathanamthitta</button>
+      <button onclick="location.href='pta.html'">Pathanamthitta</button>
       <button>Alappuzha</button>
       <button>Kottayam</button>
       <button>Idukki</button>
