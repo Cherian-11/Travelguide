@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Discover Trivandrum</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,13 +14,14 @@
     }
 
     body {
-      background-image: url('images/tvm.jpeg');
+      background-image: url('tvm.jpeg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #333;
       line-height: 1.6;
+      margin: 0;
     }
 
     header {
@@ -78,6 +79,51 @@
       color: #2e8b57;
     }
 
+    .location-list, .hotel-list, .transport-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .hotel-list li,
+    .transport-list li {
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-right: 120px;
+    }
+
+    .hotel-list li::before,
+    .transport-list li::before {
+      content: attr(data-title);
+      display: block;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #004d40;
+      margin-bottom: 0.25rem;
+    }
+
+    .map-link {
+      font-size: 0.9rem;
+      background-color: #e0f2f1;
+      padding: 0.4rem 0.7rem;
+      border-radius: 5px;
+      color: #00796b;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .map-link:hover {
+      background-color: #b2dfdb;
+    }
+
+    footer {
+      background-color: rgba(0, 77, 64, 0.85);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Location Hunt Card Grid */
     .destinations-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -122,33 +168,37 @@
       margin-bottom: 0.75rem;
     }
 
-    .map-link {
-      font-size: 0.9rem;
-      background-color: #e0f2f1;
-      padding: 0.4rem 0.7rem;
-      border-radius: 5px;
-      color: #00796b;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .map-link:hover {
-      background-color: #b2dfdb;
-    }
-
+    /* Image classes */
     .padmanabhaswamy { background-image: url('images/padmanabhaswamy.webp'); }
     .kovalam { background-image: url('images/kovalam.jpg'); }
     .napier { background-image: url('images/napier.jpg'); }
     .veli { background-image: url('images/veli.jpg'); }
     .agasthyakoodam { background-image: url('images/agasthyakoodam.webp'); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      section {
+        padding: 1rem;
+        margin: 0.5rem;
+      }
+
       h2 {
         font-size: 1.8rem;
       }
+
       .card-title {
         font-size: 1.1rem;
       }
+
       .card-description {
         font-size: 0.9rem;
       }
@@ -171,13 +221,40 @@
 
   <section id="intro" class="active">
     <h2>About Trivandrum</h2>
-    <p>Thiruvananthapuram is Kerala's capital and one of the cleanest and greenest cities in India...</p>
+    <p>Thiruvananthapuram is Kerala's capital and one of the cleanest and greenest cities in India. The city is home to several prestigious institutions such as ISRO, VSSC, Technopark (India's first IT park), premier educational institutes like IISER, CET, and medical research centers...</p>
+    <h3>Emergency Contacts:</h3>
+    <ul>
+      <li>Police: 100</li>
+      <li>Fire & Rescue: 101</li>
+      <li>Ambulance: 102 / 108</li>
+      <li>Women Helpline: 1091</li>
+      <li>Child Helpline: 1098</li>
+      <li>Govt. Hospital: +91-471-2476120</li>
+      <li>Postal Office: +91-471-2473666</li>
+    </ul>
+    <h3>Key Government Contacts:</h3>
+    <ul>
+      <li>District Collector: collector.tvm@kerala.gov.in</li>
+      <li>Corporation Office: +91-471-2450330</li>
+      <li>Tourism Department: +91-471-2321132</li>
+    </ul>
   </section>
 
   <section id="history">
     <h2>History</h2>
     <ul>
-      <li><strong>Ancient Era:</strong> Known as Ananthapuri...</li>
+      <li><strong>Ancient Era:</strong> Known as Ananthapuri, with origins tied to Padmanabhaswamy Temple.</li>
+      <li><strong>1729:</strong> Travancore Kingdom established by Marthanda Varma.</li>
+      <li><strong>1800s:</strong> Became Travancore capital; reforms and English education.</li>
+      <li><strong>1949:</strong> Integrated into Indian Union.</li>
+      <li><strong>1956:</strong> Declared capital of Kerala.</li>
+      <li><strong>Today:</strong> Hub of IT, ISRO, tourism, and culture.</li>
+    </ul>
+    <h3>Upcoming Projects:</h3>
+    <ul>
+      <li>Vizhinjam International Seaport</li>
+      <li>Smart City & Urban Mobility Missions</li>
+      <li>Light Metro & Tram Services (planned)</li>
     </ul>
   </section>
 
@@ -206,7 +283,7 @@
         <div class="card-image napier"></div>
         <div class="card-content">
           <h3 class="card-title">Napier Museum</h3>
-          <p class="card-description">Museum with Indo-Saracenic architecture and rare artifacts. <em>Visit any time of year.</em></p>
+          <p class="card-description">Museum with Indo-Saracenic architecture and rare artifacts. <em>Visit year-round</em></p>
           <a class="map-link" href="https://www.google.com/maps?q=Napier+Museum,+Trivandrum" target="_blank">View Map</a>
         </div>
       </div>
@@ -215,7 +292,7 @@
         <div class="card-image veli"></div>
         <div class="card-content">
           <h3 class="card-title">Veli Tourist Village</h3>
-          <p class="card-description">Family-friendly park where the lake meets the sea. <em>Best time: Sept–Mar</em></p>
+          <p class="card-description">Lake-meets-sea park with boating & gardens. <em>Best: Sept–Mar</em></p>
           <a class="map-link" href="https://www.google.com/maps?q=Veli+Tourist+Village,+Trivandrum" target="_blank">View Map</a>
         </div>
       </div>
@@ -224,11 +301,34 @@
         <div class="card-image agasthyakoodam"></div>
         <div class="card-content">
           <h3 class="card-title">Agasthyakoodam</h3>
-          <p class="card-description">Sacred peak & biodiversity hotspot. <em>Season: Jan–Mar (permit required)</em></p>
+          <p class="card-description">Sacred peak & eco-trek zone. <em>Season: Jan–Mar (permit required)</em></p>
           <a class="map-link" href="https://www.google.com/maps?q=Agasthyakoodam,+Trivandrum" target="_blank">View Map</a>
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="hotels">
+    <h2>Hotels & Restaurants</h2>
+    <ul class="hotel-list">
+      <li data-title="Vivanta Trivandrum ★★★★☆">Luxury hotel with spa & multi-cuisine dining. <a class="map-link" href="https://www.google.com/maps?q=Vivanta+Trivandrum" target="_blank">View Map</a></li>
+      <li data-title="The Central Residency ★★★★☆">Business-friendly stay near central railway. <a class="map-link" href="https://www.google.com/maps?q=The+Central+Residency+Trivandrum" target="_blank">View Map</a></li>
+      <li data-title="Zam Zam Restaurant ★★★☆☆">Popular for Arabian & Kerala food. <a class="map-link" href="https://www.google.com/maps?q=Zam+Zam+Restaurant+Trivandrum" target="_blank">View Map</a></li>
+      <li data-title="Villa Maya ★★★★★">Heritage fine-dining in Dutch-era bungalow. <a class="map-link" href="https://www.google.com/maps?q=Villa+Maya+Trivandrum" target="_blank">View Map</a></li>
+      <li data-title="Mothers Veg Plaza ★★★☆☆">Famous vegetarian Kerala meals. <a class="map-link" href="https://www.google.com/maps?q=Mothers+Veg+Plaza+Trivandrum" target="_blank">View Map</a></li>
+    </ul>
+  </section>
+
+  <section id="transport">
+    <h2>Transportation</h2>
+    <ul class="transport-list">
+      <li data-title="Trivandrum International Airport">+91-471-2702311 – Domestic & International. <a class="map-link" href="https://www.google.com/maps?q=Trivandrum+International+Airport" target="_blank">View Map</a></li>
+      <li data-title="Thiruvananthapuram Central Railway Station">City/interstate trains. Enquiry: 139 <a class="map-link" href="https://www.google.com/maps?q=Thiruvananthapuram+Central+Railway+Station" target="_blank">View Map</a></li>
+      <li data-title="KSRTC Bus Terminal">+91-471-2331661 – Govt. bus transport. <a class="map-link" href="https://www.google.com/maps?q=KSRTC+Bus+Terminal" target="_blank">View Map</a></li>
+      <li data-title="Private Bus Stand – East Fort">Local buses & private travels. <a class="map-link" href="https://www.google.com/maps?q=Private+Bus+Stand+East+Fort" target="_blank">View Map</a></li>
+      <li data-title="Taxi & Auto Service">Uber, Ola, prepaid taxis & autos available citywide.</li>
+      <li data-title="Boating – Akkulam & Veli Lakes">Seasonal boating & leisure services.</li>
+    </ul>
   </section>
 
   <footer>
