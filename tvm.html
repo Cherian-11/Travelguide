@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Location Hunt - Kerala Travel in Frames</title>
+  <title>Discover Trivandrum</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -14,10 +14,61 @@
     }
 
     body {
-      background: #f0f4f5;
+      background-image: url('images/tvm.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       color: #333;
       line-height: 1.6;
-      padding: 20px;
+    }
+
+    header {
+      background-color: rgba(0, 77, 64, 0.85);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: rgba(0, 121, 107, 0.85);
+      padding: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active-link {
+      background-color: #004d40;
+    }
+
+    section {
+      background-color: rgba(255, 255, 255, 0.6);
+      margin: 1rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 1200px;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    section.active {
+      display: block;
     }
 
     h2 {
@@ -85,37 +136,19 @@
       background-color: #b2dfdb;
     }
 
-    /* Image backgrounds */
-    .padmanabhaswamy {
-      background-image: url('images/padmanabhaswamy.webp');
-    }
+    .padmanabhaswamy { background-image: url('images/padmanabhaswamy.webp'); }
+    .kovalam { background-image: url('images/kovalam.jpg'); }
+    .napier { background-image: url('images/napier.jpg'); }
+    .veli { background-image: url('images/veli.jpg'); }
+    .agasthyakoodam { background-image: url('images/agasthyakoodam.webp'); }
 
-    .kovalam {
-      background-image: url('images/kovalam.jpg');
-    }
-
-    .napier {
-      background-image: url('images/napier.jpg');
-    }
-
-    .veli {
-      background-image: url('images/veli.jpg');
-    }
-
-    .agasthyakoodam {
-      background-image: url('images/agasthyakoodam.webp');
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 600px) {
       h2 {
         font-size: 1.8rem;
       }
-
       .card-title {
         font-size: 1.1rem;
       }
-
       .card-description {
         font-size: 0.9rem;
       }
@@ -123,6 +156,31 @@
   </style>
 </head>
 <body>
+  <header>
+    <h1>Thiruvananthapuram (Trivandrum)</h1>
+    <p>Explore the Capital of Kerala</p>
+  </header>
+
+  <nav>
+    <a href="#intro">About</a>
+    <a href="#history">History</a>
+    <a href="#location">Location Hunt</a>
+    <a href="#hotels">Hotels & Restaurants</a>
+    <a href="#transport">Transportation</a>
+  </nav>
+
+  <section id="intro" class="active">
+    <h2>About Trivandrum</h2>
+    <p>Thiruvananthapuram is Kerala's capital and one of the cleanest and greenest cities in India...</p>
+  </section>
+
+  <section id="history">
+    <h2>History</h2>
+    <ul>
+      <li><strong>Ancient Era:</strong> Known as Ananthapuri...</li>
+    </ul>
+  </section>
+
   <section id="location">
     <h2>Location Hunt</h2>
     <div class="destinations-grid">
@@ -172,5 +230,32 @@
       </div>
     </div>
   </section>
+
+  <footer>
+    <p>&copy; 2025 Kerala Travel in Frames | Discover Trivandrum</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const links = document.querySelectorAll("nav a");
+      const sections = document.querySelectorAll("section");
+
+      function showSection(id) {
+        sections.forEach(sec => sec.classList.remove("active"));
+        document.querySelector(id).classList.add("active");
+        links.forEach(link => link.classList.remove("active-link"));
+        document.querySelector(`nav a[href='${id}']`).classList.add("active-link");
+      }
+
+      links.forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          showSection(link.getAttribute("href"));
+        });
+      });
+
+      showSection("#intro");
+    });
+  </script>
 </body>
 </html>
