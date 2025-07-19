@@ -35,7 +35,7 @@
       z-index: 1;
       text-align: center;
       color: white;
-      padding: 80px 20px;
+      padding: 80px 20px 40px; /* extra bottom padding for footer spacing */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -98,6 +98,14 @@
       color: white;
     }
 
+    footer {
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      position: relative;
+      z-index: 1;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
@@ -126,10 +134,12 @@
 </head>
 <body>
   <div class="overlay"></div>
-  <a class="logout-button" href="index.html" style="z-index:2; position:absolute; top:20px; right:20px;">Logout</a>
+  <a class="logout-button" href="index.html">Logout</a>
+  
   <div class="home-container">
     <h1>Welcome to Kerala Travel in Frames</h1>
     <p>Explore the culture, beauty, and magic of God's Own Country. Let your journey begin here with unforgettable experiences and serene landscapes.</p>
+    
     <div class="district-buttons">
       <button onclick="location.href='tvm.html'">Thiruvananthapuram</button>
       <button>Kollam</button>
@@ -149,8 +159,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2025 Kerala Travel in Frames | Discover Kerala</p>
+    <p>&copy; 2025 Kerala Travel in Frames | Discover Pathanamthitta</p>
   </footer>
-  
 </body>
 </html>
