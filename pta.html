@@ -2,140 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Discover Pathanamthitta</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      background-image: url('images/pta.jpeg'); 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #333;
-      line-height: 1.6;
-      font-family: 'Poppins', sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background-image: url('images/pta.jpeg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+      animation: backgroundMove 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     header {
-      background-color: rgba(0, 77, 64, 0.85);
-      color: white;
-      padding: 1rem 2rem;
+      background: linear-gradient(to right, #004d40, #00695c);
+      color: #fff;
+      padding: 20px 0;
       text-align: center;
     }
 
+    header h1 {
+      font-size: 2.5rem;
+    }
+
     nav {
+      background-color: #00796b;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      background-color: rgba(0, 121, 107, 0.85);
-      padding: 0.75rem;
+      gap: 30px;
+      padding: 10px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      font-weight: 500;
     }
 
-    nav a:hover,
-    nav a.active-link {
-      background-color: #004d40;
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    section {
-      background-color: rgba(255, 255, 255, 0.6);
-      margin: 1rem auto;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 900px;
-      display: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      transition: all 0.3s ease-in-out;
+    .container {
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.6); /* more translucent */
+      border-radius: 15px;
     }
 
-    section.active {
-      display: block;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00796b;
+      text-align: center;
     }
 
-    h2 {
-      color: #00695c;
-      margin-bottom: 1rem;
-    }
-
-    .location-list li,
-    .hotel-list li,
-    .transport-list li {
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-right: 120px;
-    }
-
-    .location-list li::before,
-    .hotel-list li::before,
-    .transport-list li::before {
-      content: attr(data-title);
-      display: block;
-      font-weight: bold;
+    .intro p {
       font-size: 1.1rem;
-      color: #004d40;
-      margin-bottom: 0.25rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .location-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .location-list li {
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .location-list img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     .map-link {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      font-size: 0.9rem;
-      background-color: #e0f2f1;
-      padding: 0.25rem 0.5rem;
-      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
       color: #00796b;
       text-decoration: none;
+      font-weight: bold;
     }
 
     .map-link:hover {
-      background-color: #b2dfdb;
+      text-decoration: underline;
     }
 
     footer {
-      background-color: rgba(0, 77, 64, 0.85);
-      color: white;
+      background-color: #004d40;
+      color: #fff;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 15px 0;
+      margin-top: 30px;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 0.75rem;
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
       }
 
-      nav a {
-        width: 100%;
-        text-align: center;
-      }
-
-      section {
-        padding: 1rem;
-        margin: 0.5rem;
-      }
-
-      .map-link {
-        position: relative;
-        display: block;
-        margin-top: 0.5rem;
-        text-align: right;
+      .section-title {
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -144,39 +136,24 @@
   <header>
     <h1>Pathanamthitta</h1>
     <p>Explore the Spiritual Heart of Kerala</p>
+
   </header>
 
   <nav>
-    <a href="#intro">About</a>
-    <a href="#history">History</a>
-    <a href="#location">Location Hunt</a>
-    <a href="#hotels">Hotels & Restaurants</a>
+    <a href="#">Home</a>
+    <a href="#location">Places to Visit</a>
+    <a href="#cuisine">Cuisine</a>
+    <a href="#festivals">Festivals</a>
     <a href="#transport">Transportation</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <section id="intro" class="active">
-    <h2>About Pathanamthitta</h2>
-    <p>Pathanamthitta is a serene district in Kerala known for its lush forests, rivers, pilgrimage centers like Sabarimala, and vibrant rural life. It offers a spiritual and ecological escape and is rich in culture and biodiversity.</p>
-    <h3>Emergency Contacts:</h3>
-    <ul>
-      <li>Police: 100</li>
-      <li>Fire & Rescue: 101</li>
-      <li>Ambulance: 102 / 108</li>
-      <li>Women Helpline: 1091</li>
-      <li>Child Helpline: 1098</li>
-      <li>District Hospital: +91-468-2222362</li>
-      <li>Collectorate: +91-468-2222513</li>
-    </ul>
-    <h3>Key Government Contacts:</h3>
-    <ul>
-      <li>District Collector: collector.pta@kerala.gov.in</li>
-      <li>Tourism Office: +91-468-2222143</li>
-      <li>Municipality Office: +91-468-2222220</li>
-    </ul>
-  </section>
-
-  <section id="history">
-    <h2>History</h2>
+  <div class="container">
+    <section class="intro">
+      <h2 class="section-title">Welcome to Pathanamthitta</h2>
+      <p>Pathanamthitta is known as the spiritual capital of Kerala, with numerous temples and pilgrimage centers. The district is rich in culture and tradition, making it a unique destination for visitors.</p>
+      <p>Pathanamthitta is a city of rich history, culture, and natural beauty. From ancient temples to serene beaches, it offers a unique blend of tradition and modernity.</p>
+        <h3>History</h3>
     <ul>
       <li><strong>Ancient Period:</strong> Known for its temple towns and forest heritage.</li>
       <li><strong>Sabarimala Temple:</strong> Has roots in ancient Dravidian traditions and Ayyappa worship.</li>
@@ -190,92 +167,156 @@
       <li>Road connectivity to Sabarimala improved</li>
       <li>Modernization of healthcare & transport in rural areas</li>
     </ul>
-  </section>
 
-  <section id="location">
-    <h2>Location Hunt</h2>
-    <ul class="location-list">
-      <li data-title="Sabarimala Temple">One of the largest annual pilgrimage sites in the world.
-        <a class="map-link" href="https://www.google.com/maps?q=Sabarimala+Temple" target="_blank">View Map</a>
-      </li>
-      <li data-title="Gavi Forest">An eco-tourism hotspot inside the Periyar Tiger Reserve.
-        <a class="map-link" href="https://www.google.com/maps?q=Gavi+Forest,+Kerala" target="_blank">View Map</a>
-      </li>
-      <li data-title="Konni Elephant Camp">Elephant rescue center and forest trekking zone.
-        <a class="map-link" href="https://www.google.com/maps?q=Konni+Elephant+Camp" target="_blank">View Map</a>
-      </li>
-      <li data-title="Aranmula Parthasarathy Temple">Known for boat race and mirror craft.
-        <a class="map-link" href="https://www.google.com/maps?q=Aranmula+Parthasarathy+Temple" target="_blank">View Map</a>
-      </li>
-      <li data-title="Perunthenaruvi Waterfalls">Scenic waterfall on the Pamba River.
-        <a class="map-link" href="https://www.google.com/maps?q=Perunthenaruvi+Waterfalls" target="_blank">View Map</a>
-      </li>
-    </ul>
-  </section>
+    </section>
 
-  <section id="hotels">
-    <h2>Hotels & Restaurants</h2>
-    <ul class="hotel-list">
-      <li data-title="Hotel Hills Park ★★★☆☆">Modern amenities near the main town.
-        <a class="map-link" href="https://www.google.com/maps?q=Hotel+Hills+Park+Pathanamthitta" target="_blank">View Map</a>
-      </li>
-      <li data-title="Sabarigiri Tourist Home ★★★☆☆">Ideal for Sabarimala pilgrims.
-        <a class="map-link" href="https://www.google.com/maps?q=Sabarigiri+Tourist+Home+Pathanamthitta" target="_blank">View Map</a>
-      </li>
-      <li data-title="Kattanam Kitchen ★★★☆☆">Popular for local Kerala cuisine.
-        <a class="map-link" href="https://www.google.com/maps?q=Kattanam+Kitchen+Pathanamthitta" target="_blank">View Map</a>
-      </li>
-      <li data-title="Meem’s Restaurant ★★★☆☆">Multi-cuisine, family-friendly atmosphere.
-        <a class="map-link" href="https://www.google.com/maps?q=Meem's+Restaurant+Pathanamthitta" target="_blank">View Map</a>
-      </li>
-      <li data-title="Misty Mountain Villas ★★★★☆">Forest-facing homestay options.
-        <a class="map-link" href="https://www.google.com/maps?q=Misty+Mountain+Villas+Pathanamthitta" target="_blank">View Map</a>
-      </li>
-    </ul>
-  </section>
+    <section id="location">
+      <h2 class="section-title">Location Hunt</h2>
+      <ul class="location-list">
+  <li>
+    <img src="images/sabarimala.jpg" alt="Sabarimala Temple"><br>
+    Sabarimala Temple - One of the largest annual pilgrimage centers. <em>Best: Nov–Jan (Mandala-Makaravilakku)</em><br>
+    <a class="map-link" href="https://www.google.com/maps?q=Sabarimala+Temple" target="_blank">View Map</a>
+  </li>
 
-  <section id="transport">
-    <h2>Transportation</h2>
+  <li>
+    <img src="images/gavi.jpg" alt="Gavi Forest"><br>
+    Gavi Forest - Eco-tourism gem in Periyar Reserve with safaris and trekking. <em>Best: Oct–Mar</em><br>
+    <a class="map-link" href="https://www.google.com/maps?q=Gavi+Forest,+Kerala" target="_blank">View Map</a>
+  </li>
+
+  <li>
+    <img src="images/konni.jpg" alt="Konni Elephant Camp"><br>
+    Konni Elephant Camp - Elephant rehabilitation and jungle trekking. <em>Best: Sept–Mar</em><br>
+    <a class="map-link" href="https://www.google.com/maps?q=Konni+Elephant+Camp" target="_blank">View Map</a>
+  </li>
+
+  <li>
+    <img src="images/aranmula.webp" alt="Aranmula"><br>
+    Aranmula Temple - Known for boat race and metal mirror art. <em>Best: Aug–Sept (Onam & Boat Race)</em><br>
+    <a class="map-link" href="https://www.google.com/maps?q=Aranmula+Parthasarathy+Temple" target="_blank">View Map</a>
+  </li>
+
+  <li>
+    <img src="images/perunthenaruvi.jpg" alt="Perunthenaruvi Waterfalls"><br>
+    Perunthenaruvi Falls - Scenic waterfall on the Pamba River. <em>Best: June–Dec</em><br>
+    <a class="map-link" href="https://www.google.com/maps?q=Perunthenaruvi+Waterfalls" target="_blank">View Map</a>
+  </li>
+  <li>
+    <img src="images/kaviyoor.webp" alt="kaviyoor Rock Temple"><br>
+    Kaviyoor Rock Temple – An ancient rock-cut cave temple dedicated to Lord Shiva, showcasing early Kerala temple architecture. <em>Best: Nov–Feb</em><br>
+  <a class="map-link" href="https://www.google.com/maps?q=Kaviyoor+Rock+Temple" target="_blank">View Map</a>
+  </li>
+
+  <li>
+  <img src="images/kakki.jpg" alt="Kakki Dam"><br>
+  Kakki Dam – A scenic reservoir nestled in the forest, ideal for boating and nature lovers. Part of the Sabarigiri Hydroelectric Project. <em>Best: Oct–Mar</em><br>
+  <a class="map-link" href="https://www.google.com/maps?q=Kakki+Dam,+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+
+  <li>
+  <img src="images/adavi.webp" alt="Adavi Eco Tourism"><br>
+  Adavi Eco Tourism – A serene spot for coracle (bowl-boat) rides and jungle experiences on the Kallar River. <em>Best: Sept–Feb</em><br>
+  <a class="map-link" href="https://www.google.com/maps?q=Adavi+Eco+Tourism,+Pathanamthitta" target="_blank">View Map</a>
+</li>
+
+</ul>
+    </section>
+
+    <section id="cuisine">
+      <h2 class="section-title">Cuisine</h2>
+     <p>Pathanamthitta offers a cozy stay for pilgrims, nature explorers, and foodies alike. From local delights like appam-stew and tapioca curry to homely restaurants and forest-facing villas, there's comfort and taste for every traveler.</p>
+
+<h2>Hotels & Restaurants</h2>
+<ul class="hotel-list">
+  <li><strong>Hotel Hills Park ★★★☆☆</strong> – Modern amenities near the main town.
+    <a class="map-link" href="https://www.google.com/maps?q=Hotel+Hills+Park+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+  <li><strong>Sabarigiri Tourist Home ★★★☆☆</strong> – Ideal for Sabarimala pilgrims.
+    <a class="map-link" href="https://www.google.com/maps?q=Sabarigiri+Tourist+Home+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+  <li><strong>Kattanam Kitchen ★★★☆☆</strong> – Popular for local Kerala cuisine.
+    <a class="map-link" href="https://www.google.com/maps?q=Kattanam+Kitchen+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+  <li><strong>Meem’s Restaurant ★★★☆☆</strong> – Multi-cuisine, family-friendly atmosphere.
+    <a class="map-link" href="https://www.google.com/maps?q=Meem's+Restaurant+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+  <li><strong>Misty Mountain Villas ★★★★☆</strong> – Forest-facing homestay options.
+    <a class="map-link" href="https://www.google.com/maps?q=Misty+Mountain+Villas+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+</ul>
+
+    </section>
+
+    <section id="festivals">
+      <h2 class="section-title">Festivals</h2>
+<p>Pathanamthitta, known as the "Pilgrim Capital of Kerala", hosts many colorful and spiritually significant festivals, especially centered around Sabarimala and river-based rituals, showcasing its deep religious traditions.</p>
+<ul>
+  <li><strong>Mandala-Makaravilakku</strong> – The most important pilgrimage season to Sabarimala Ayyappa Temple, attracting millions of devotees from across India. Celebrated from mid-November to mid-January.</li>
+  <li><strong>Aranmula Boat Race (Vallamkali)</strong> – A thrilling and prestigious snake boat race held during Onam on the Pampa River, featuring majestic palliyodams and temple rituals.</li>
+  <li><strong>Maramon Convention</strong> – One of the largest Christian gatherings in Asia, held on the Pampa riverbed, featuring prayer meetings, spiritual talks, and mass congregations.</li>
+  <li><strong>Onam</strong> – Celebrated with pookalam (floral designs), traditional dances, and Onam Sadya in homes and temples across the district.</li>
+  <li><strong>Parumala Perunnal</strong> – Annual feast of Saint Gregorios at Parumala Church, marked by grand processions, prayers, and spiritual devotion.</li>
+  <li><strong>Christmas & New Year</strong> – Churches across Pathanamthitta are beautifully decorated with stars, lights, and carols, creating a festive atmosphere in both towns and rural areas.</li>
+</ul>
+
+    </section>
+
+    <section id="transport">
+      <h2 class="section-title">Transportation</h2>
+      <p>Pathanamthitta is well connected via air, rail, and road. The nearest airport is Trivandrum International Airport, offering domestic and international flights. Buses, autos, and cabs are easily available for local travel.</p>
+      <h2>Transportation</h2>
     <ul class="transport-list">
-      <li data-title="KSRTC Bus Station – Pathanamthitta">+91-468-2222366 – Major road connectivity.
-        <a class="map-link" href="https://www.google.com/maps?q=KSRTC+Pathanamthitta" target="_blank">View Map</a>
-      </li>
-      <li data-title="Nearest Railway Station – Chengannur">Approx. 25 km – Enquiry: 139
-        <a class="map-link" href="https://www.google.com/maps?q=Chengannur+Railway+Station" target="_blank">View Map</a>
-      </li>
-      <li data-title="Nearest Airport – Trivandrum International">Approx. 100 km – +91-471-2702311
-        <a class="map-link" href="https://www.google.com/maps?q=Trivandrum+International+Airport" target="_blank">View Map</a>
-      </li>
-      <li data-title="Taxis & Auto Rickshaws">Available locally or through call centers and apps.</li>
-      <li data-title="Boat Services – Aranmula & Mannar">Traditional river routes with cultural value.</li>
-    </ul>
-  </section>
+  <li><strong>Trivandrum International Airport</strong> – Approx. 100 km. Contact: +91-471-2702311 – Nearest airport with domestic and international flights.
+    <a class="map-link" href="https://www.google.com/maps?q=Trivandrum+International+Airport" target="_blank">View Map</a>
+  </li>
+  <li><strong>Chengannur Railway Station</strong> – Approx. 25 km from Pathanamthitta. Enquiry: 139 – Nearest railway station with frequent trains to major cities.
+    <a class="map-link" href="https://www.google.com/maps?q=Chengannur+Railway+Station" target="_blank">View Map</a>
+  </li>
+  <li><strong>KSRTC Bus Station – Pathanamthitta</strong> – Contact: +91-468-2222366 – Central hub for state and inter-district buses.
+    <a class="map-link" href="https://www.google.com/maps?q=KSRTC+Pathanamthitta" target="_blank">View Map</a>
+  </li>
+  <li><strong>Private Bus Stands</strong> – Local and regional bus services to nearby towns and villages available across the district.</li>
+  <li><strong>Taxi & Auto Rickshaw Services</strong> – Widely available locally or via call centers. Popular apps include Uber (in select areas), Ola, and local operators.</li>
+  <li><strong>Boating – Aranmula & Mannar</strong> – Traditional and cultural river routes, especially scenic during festival seasons.</li>
+</ul>
+
+    </section>
+
+    <section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>For more details or personalized tour plans, contact the Pathanamthitta Tourism Office:<br>
+    <li><strong>Tourism Department Office:</strong><br>
+      District Tourism Promotion Council (DTPC),<br>
+      Near KSRTC Bus Stand, Pathanamthitta - 689645, Kerala, India
+    </li>
+    <li><strong>Phone:</strong> +91-468-2222143</li>
+    <li><strong>Email:</strong> info@dtpcpathanamthitta.com</li>
+  </p>
+
+  <h3>Emergency Contacts:</h3>
+  <ul>
+    <li>Police: 100</li>
+    <li>Fire & Rescue: 101</li>
+    <li>Ambulance: 102 / 108</li>
+    <li>Women Helpline: 1091</li>
+    <li>Child Helpline: 1098</li>
+    <li>District Hospital: +91-468-2222362</li>
+    <li>Collectorate: +91-468-2222513</li>
+  </ul>
+
+  <h3>Key Government Contacts:</h3>
+  <ul>
+    <li>District Collector: collector.pta@kerala.gov.in</li>
+    <li>Municipality Office: +91-468-2222220</li>
+    <li>Tourism Office: +91-468-2222143</li>
+  </ul>
+</section>
+
+  </div>
 
   <footer>
-    <p>&copy; 2025 Kerala Travel in Frames | Discover Pathanamthitta</p>
+    <p>&copy; 2025 Kerala Travel in Frames | Explore Pathanamthitta</p>
   </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const links = document.querySelectorAll("nav a");
-      const sections = document.querySelectorAll("section");
-
-      function showSection(id) {
-        sections.forEach(sec => sec.classList.remove("active"));
-        document.querySelector(id).classList.add("active");
-        links.forEach(link => link.classList.remove("active-link"));
-        document.querySelector(`nav a[href='${id}']`).classList.add("active-link");
-      }
-
-      links.forEach(link => {
-        link.addEventListener("click", e => {
-          e.preventDefault();
-          showSection(link.getAttribute("href"));
-        });
-      });
-
-      showSection("#intro");
-    });
-  </script>
 </body>
 </html>
